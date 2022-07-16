@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="persistence-data">
+        <class>com.quanlydoanhthu.entity.NhanVienEntity</class>
+        <class>com.quanlydoanhthu.entity.NguoiDungEntity</class>
+        <class>com.quanlydoanhthu.entity.PhanQuyenEntity</class>
+        <class>com.quanlydoanhthu.entity.ChucVuEntity</class>
+        <class>com.quanlydoanhthu.entity.SanPhamEntity</class>
+        <class>com.quanlydoanhthu.entity.DonHangEntity</class>
+        <class>com.quanlydoanhthu.entity.DonHangSanPhamEntity</class>
+        <class>com.quanlydoanhthu.entity.CompositeKey</class>
+        <class>com.quanlydoanhthu.entity.NhapHangEntity</class>
+        <class>com.quanlydoanhthu.entity.NhapHangSanPhamEntity</class>
+        <class>com.quanlydoanhthu.entity.CompositeKey2</class>
+        <class>com.quanlydoanhthu.entity.HangEntity</class>
+        <class>com.quanlydoanhthu.entity.BaseEntity</class>
+        <class>com.quanlydoanhthu.entity.LoaiSPEntity</class>
+    </persistence-unit>
+</persistence>
