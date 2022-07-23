@@ -3,6 +3,7 @@ package com.quanlydoanhthu.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -25,6 +26,17 @@ public class NhapHangEntity extends BaseEntity{
 	@JsonManagedReference
 	@OneToMany(mappedBy = "nhapHangEntity")
     List<NhapHangSanPhamEntity> nhapHangSanPhamEntities;
+	
+	@Column(name = "ChietKhau")
+	private Long chietKhauLong;
+	
+	public Long getChietKhauLong() {
+		return chietKhauLong;
+	}
+
+	public void setChietKhauLong(Long chietKhauLong) {
+		this.chietKhauLong = chietKhauLong;
+	}
 	
 	public NhanVienEntity getNhanVienEntity() {
 		return nhanVienEntity;

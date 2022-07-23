@@ -56,10 +56,15 @@
 							</select>
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right" for="">Số
-									lượng</label> <input class="form-control" id="soLuong"
-									name="soLuong" value="${item.soLuongNhap}">
+									lượng</label> <input class="form-control" id="soLuong" name="soLuong"
+									value="${item.soLuongNhap}">
 							</div>
 						</c:forEach>
+						<div class="form-group">
+							<label class="col-sm-6 control-label no-padding-right" for="">Chiết
+								khấu</label> <input class="form-control" id="chietKhauLong"
+								name="chietKhauLong" value="${model.chietKhauLong}">
+						</div>
 						<div class="clearfix form-actions">
 							<div class="col-md-offset-3 col-md-9">
 								<button class="btn btn-info" type="button" id="btnAddOrUpdate">
@@ -86,16 +91,14 @@
 			data["soLuongNhapList"] = soLuongNhapList;
 			var formData = $('#formSubmit').serializeArray();
 			$.each(formData, function(i, v) {
-				if(v.name == 'idSP') {
+				if (v.name == 'idSP') {
 					idSanPhamList.push(v.value);
-					
-				}
-				else if(v.name == 'soLuong') {
+
+				} else if (v.name == 'soLuong') {
 					soLuongNhapList.push(v.value);
-				
-				}
-				else {
-					data["" + v.name + ""] = v.value;					
+
+				} else {
+					data["" + v.name + ""] = v.value;
 				}
 			});
 			console.log(data);
@@ -110,11 +113,11 @@
 				data : JSON.stringify(data),
 				success : function(result) {
 					console.log(result);
-					window.location.href = "/trang-chu/nhap-hang/danh-sach?message=insert_success";
+					//window.location.href = "/trang-chu/nhap-hang/danh-sach?message=insert_success";
 				},
 				error : function(error) {
 					console.log(error);
-					window.location.href = "/trang-chu/nhap-hang/danh-sach?message=error_system";
+					//window.location.href = "/trang-chu/nhap-hang/danh-sach?message=error_system";
 				}
 			});
 		}

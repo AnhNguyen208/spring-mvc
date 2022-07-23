@@ -5,6 +5,7 @@ public class SanPhamDTO extends AbstractDTO<SanPhamDTO>{
 	private String anhDaiDienString;
 	private String loaiSanPhamString;
 	private String hangString;
+	private String logoHangString;
 	private Long giaBanLong;
 	private Long giaNhapLong;
 	private Long giaBanLong1;
@@ -15,6 +16,12 @@ public class SanPhamDTO extends AbstractDTO<SanPhamDTO>{
 	private String mauSacString;
 	private String kichCoString;
 	
+	public String getLogoHangString() {
+		return logoHangString;
+	}
+	public void setLogoHangString(String logoHangString) {
+		this.logoHangString = logoHangString;
+	}
 	public Long getGiaBanLong1() {
 		return giaBanLong1;
 	}

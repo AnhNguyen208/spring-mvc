@@ -36,6 +36,7 @@ public class DonHangSanPhamEntity {
 	@Column(name = "Gia")
 	private Long giaLong;
 	
+
 	public Long getGiaLong() {
 		return giaLong;
 	}

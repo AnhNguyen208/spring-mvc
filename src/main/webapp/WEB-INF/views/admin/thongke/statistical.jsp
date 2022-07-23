@@ -10,7 +10,7 @@
 	<div class="main-content">
 		<form action="" id="formSubmit" method="get">
 			<div class="page-content">
-				<div class="row">
+				<%-- <div class="row">
 					<div class="space-6"></div>
 
 					<div class="col-sm-9 infobox-container">
@@ -75,24 +75,33 @@
 								</tbody>
 							</table>
 							<div class="space-6"></div>
-							<div class="infobox infobox-blue infobox-small infobox-dark">
+							<!-- <div class="infobox infobox-blue infobox-small infobox-dark">
 								<div class="infobox-data">
 									<div class="infobox-content">Doanh thu</div>
 									<div class="infobox-content">$32,000</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 
-				</div>
+				</div> --%>
+				<!-- <p>
+					Từ ngày: <input type="date" id="datepicker">
+				</p>
+				<p>
+					Đến ngày: <input type="date" id="datepicker1">
+				</p> -->
+
+				<label for="date1">Từ ngày:</label> <input type="date"
+					id="datepicker" name="date1"> <label for="date2">Đến
+					ngày:</label> <input type="date" id="datepicker1" name="date2">
+
+				<button class="btn btn-info" type="button" id="btnSearch">
+					<i class="ace-icon fa fa-filter bigger-110"></i> Tìm kiếm
+				</button>
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="col-xs-12">
-							<div class="widget-box table-filter">
-								<div class="table-btn-controls">
-									<div class="pull-right tableTools-container"></div>
-								</div>
-							</div>
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="table-responsive">
@@ -114,12 +123,12 @@
 											</tbody>
 										</table>
 										<div class="space-6"></div>
-										<div class="infobox infobox-blue infobox-small infobox-dark">
+										<!-- <div class="infobox infobox-blue infobox-small infobox-dark">
 											<div class="infobox-data">
 												<div class="infobox-content">Doanh thu</div>
 												<div class="infobox-content">$32,000</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>
@@ -138,6 +147,7 @@
 												<tr>
 													<th>Mã nhân viên</th>
 													<th>Tên nhân viên</th>
+													<th>Số đơn hàng</th>
 													<th>Doanh thu</th>
 												</tr>
 											</thead>
@@ -146,18 +156,20 @@
 													<tr>
 														<td>${item.id}</td>
 														<td>${item.hoVaTenString}</td>
+														<td>${item.soLuongDonHang}</td>
 														<td>${item.doanhThuLong}</td>
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
 										<div class="space-6"></div>
-										<div class="infobox infobox-blue infobox-small infobox-dark">
+										<!-- <div class="infobox infobox-blue infobox-small infobox-dark">
 											<div class="infobox-data">
 												<div class="infobox-content">Doanh thu</div>
 												<div class="infobox-content">$32,000</div>
 											</div>
-										</div>
+										</div> -->
+
 									</div>
 								</div>
 							</div>
@@ -167,7 +179,25 @@
 			</div>
 		</form>
 	</div>
-
+	<script>
+		$(function() {
+			$("#datepicker").datepicker();
+		});
+		$(function() {
+			$("#datepicker1").datepicker();
+		});
+		$('#btnSearch')
+				.click(
+						function(e) {
+							e.preventDefault();
+							var date1 = $('#datepicker').val();
+							var date2 = $('#datepicker1').val();
+							console.log(date1);
+							console.log(date2);
+							window.location.href = "/quan-tri/trang-chu/thong-ke?date1="
+									+ date1 + "&date2=" + date2 + "";
+						});
+	</script>
 
 </body>
 </html>

@@ -47,23 +47,15 @@ public class NhapHangController {
 	
 	
 	@RequestMapping(value = "/trang-chu/nhap-hang/them", method = RequestMethod.GET)
-	public ModelAndView add() {
-		ModelAndView mav = new ModelAndView("web/nhaphang/add");
+	public ModelAndView add(@RequestParam(value = "soLuong",  required = false) Long soLuong) {
+		ModelAndView mav = new ModelAndView("web/nhaphang/addOrderTest");
 		NhapHangDTO nhapHangDTO = new NhapHangDTO();
-		mav.addObject("model" ,nhapHangDTO);
-		
-		NhanVienDTO nhanVienDTO = new NhanVienDTO();
-		nhanVienDTO.setListResult(nhanVienService.findNhanVienQuanLiKho());
-		mav.addObject("nv",nhanVienDTO);
-		return mav;
-	}
-	
-	@RequestMapping(value = "/trang-chu/nhap-hang/them-san-pham-cho-don-nhap-hang", method = RequestMethod.GET)
-	public ModelAndView addProduct(@RequestParam("maNhanVien") Long maNhanVien, @RequestParam("soLuong") int soLuong) {
-		ModelAndView mav = new ModelAndView("web/nhaphang/addProduct");
-		NhapHangDTO nhapHangDTO = new NhapHangDTO();
-		nhapHangDTO.setIdNhanVienNhapHang(maNhanVien);
-		nhapHangDTO.setSoLuongSanPham(soLuong);
+		if(soLuong == null) {
+			nhapHangDTO.setSoLuongSanPham(1);
+			soLuong = (long) 1;
+		}else {
+			nhapHangDTO.setSoLuongSanPham(soLuong.intValue());
+		}
 		java.util.List<SanPhamDTO> sanPhamDTOs = new ArrayList<SanPhamDTO>();
 		for(int i = 0; i < soLuong; i++) {
 			SanPhamDTO sanPhamDTO = new SanPhamDTO();
@@ -72,13 +64,35 @@ public class NhapHangController {
 		nhapHangDTO.setThongTinNhapHangDtos(sanPhamDTOs);
 		mav.addObject("model" ,nhapHangDTO);
 		
-		SanPhamDTO sanPhamDTO = new SanPhamDTO();
-		sanPhamDTO.setListResult(sanPhamService.findAll());
-		mav.addObject("sp", sanPhamDTO);
-		
 		NhanVienDTO nhanVienDTO = new NhanVienDTO();
 		nhanVienDTO.setListResult(nhanVienService.findNhanVienQuanLiKho());
 		mav.addObject("nv",nhanVienDTO);
+		
+		SanPhamDTO sanPhamDTO = new SanPhamDTO();
+		sanPhamDTO.setListResult(sanPhamService.findAll());
+		mav.addObject("sp", sanPhamDTO);
 		return mav;
 	}
+	
+	/*
+	 * @RequestMapping(value =
+	 * "/trang-chu/nhap-hang/them-san-pham-cho-don-nhap-hang", method =
+	 * RequestMethod.GET) public ModelAndView addProduct(@RequestParam("maNhanVien")
+	 * Long maNhanVien, @RequestParam("soLuong") int soLuong) { ModelAndView mav =
+	 * new ModelAndView("web/nhaphang/addProduct"); NhapHangDTO nhapHangDTO = new
+	 * NhapHangDTO(); nhapHangDTO.setIdNhanVienNhapHang(maNhanVien);
+	 * nhapHangDTO.setSoLuongSanPham(soLuong); java.util.List<SanPhamDTO>
+	 * sanPhamDTOs = new ArrayList<SanPhamDTO>(); for(int i = 0; i < soLuong; i++) {
+	 * SanPhamDTO sanPhamDTO = new SanPhamDTO(); sanPhamDTOs.add(sanPhamDTO); }
+	 * nhapHangDTO.setThongTinNhapHangDtos(sanPhamDTOs); mav.addObject("model"
+	 * ,nhapHangDTO);
+	 * 
+	 * SanPhamDTO sanPhamDTO = new SanPhamDTO();
+	 * sanPhamDTO.setListResult(sanPhamService.findAll()); mav.addObject("sp",
+	 * sanPhamDTO);
+	 * 
+	 * NhanVienDTO nhanVienDTO = new NhanVienDTO();
+	 * nhanVienDTO.setListResult(nhanVienService.findNhanVienQuanLiKho());
+	 * mav.addObject("nv",nhanVienDTO); return mav; }
+	 */
 }

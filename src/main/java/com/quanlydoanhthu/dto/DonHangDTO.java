@@ -13,8 +13,14 @@ public class DonHangDTO extends AbstractDTO<DonHangDTO>{
 	private Long idNhanVienBanHang;
 	private String tenNhanVienString;
 	private Long tongTienDonHang;
+	private Long chietKhauLong;
 	
-	
+	public Long getChietKhauLong() {
+		return chietKhauLong;
+	}
+	public void setChietKhauLong(Long chietKhauLong) {
+		this.chietKhauLong = chietKhauLong;
+	}
 	public String getTenNhanVienString() {
 		return tenNhanVienString;
 	}
@@ -54,6 +60,7 @@ public class DonHangDTO extends AbstractDTO<DonHangDTO>{
 		for(SanPhamDTO sanPhamDTO:thongTinDonHangDtos) {
 			this.tongTienDonHang = this.tongTienDonHang + (sanPhamDTO.getSoLuongBan()*sanPhamDTO.getGiaBanLong1());
 		}
+		this.tongTienDonHang = this.tongTienDonHang - this.chietKhauLong;
 		
 	}
 	public int getSoLuongSanPham() {

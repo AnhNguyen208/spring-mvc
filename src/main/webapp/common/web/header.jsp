@@ -19,7 +19,6 @@
 				<security:authorize access="isAnonymous()">
 					<li class="nav-item"><a class="nav-link"
 						href="<c:url value='/dang-nhap'/>">Đăng nhập</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Đăng kí</a></li>
 				</security:authorize>
 				<security:authorize access="isAuthenticated()">
 					<div class="dropdown">
@@ -54,13 +53,15 @@
 						<c:if
 							test="${SecurityUtils.getPrincipal().getPhanQuyenString() == 'USER2'}">
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<li class="dropdown-header">Dropdown header</li>
-								<li><a class="dropdown-item" href="#">Xuất, nhập kho </a></li>
+								<li class="dropdown-header">Tài khoản</li>
 								<li><a class="dropdown-item" href="/trang-chu/thong-tin">Thông
 										tin tài khoản</a></li>
-								<li><a class="dropdown-item"
-									href="/trang-chu/don-hang/danh-sach">Đơn hàng</a></li>
 								<li><a class="dropdown-item" href="<c:url value='/thoat'/>">Thoát</a></li>
+								<li class="dropdown-header">Đơn hàng</li>
+								<li><a class="dropdown-item"
+									href="/trang-chu/don-hang/danh-sach-cua-nhan-vien-ban-hang">Danh sách đơn hàng</a></li>
+								<li><a class="dropdown-item"
+									href="/trang-chu/don-hang/them">Thêm đơn hàng</a></li>
 							</ul>
 						</c:if>
 					</div>

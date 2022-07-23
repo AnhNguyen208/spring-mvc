@@ -19,6 +19,17 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class DonHangEntity extends BaseEntity{
 	@Column(name = "ThongTinKhachHang")
 	private String thongTinKhachHangString;
+	
+	@Column(name = "ChietKhau")
+	private Long chietKhauLong;
+	
+	public Long getChietKhauLong() {
+		return chietKhauLong;
+	}
+
+	public void setChietKhauLong(Long chietKhauLong) {
+		this.chietKhauLong = chietKhauLong;
+	}
     
 	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -32,32 +43,19 @@ public class DonHangEntity extends BaseEntity{
 	public String getThongTinKhachHangString() {
 		return thongTinKhachHangString;
 	}
-
-
 	public void setThongTinKhachHangString(String thongTinKhachHangString) {
 		this.thongTinKhachHangString = thongTinKhachHangString;
 	}
-
 	public NhanVienEntity getNhanVienEntity() {
 		return nhanVienEntity;
 	}
-
-
 	public void setNhanVienEntity(NhanVienEntity nhanVienEntity) {
 		this.nhanVienEntity = nhanVienEntity;
 	}
-
-
 	public List<DonHangSanPhamEntity> getDonHangSanPhamEntities() {
 		return donHangSanPhamEntities;
 	}
-
-
 	public void setDonHangSanPhamEntities(List<DonHangSanPhamEntity> donHangSanPhamEntities) {
 		this.donHangSanPhamEntities = donHangSanPhamEntities;
 	}
-
-
-	
-
 }

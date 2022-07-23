@@ -1,5 +1,6 @@
 package com.quanlydoanhthu.service.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -13,7 +14,11 @@ public interface INhanVienService {
 	
 	List<NhanVienDTO> findNhanVienBanHang();
 	
+	List<NhanVienDTO> findNhanVienBanHang(Date date1, Date date2);
+	
 	List<NhanVienDTO> findNhanVienQuanLiKho();
+	
+	NhanVienDTO findDoangThu(Long idLong);
 
 	int getTotalItem();
 
