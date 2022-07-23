@@ -20,18 +20,17 @@
 				<div class="col-md-12">
 					<form action="<c:url value='/trang-chu/don-hang/them'/>"
 						id="formSubmit" method="get">
-						<%-- <div class="form-group">
-							<label class="col-sm-3 control-label no-padding-right" for="">Mã
-								nhân viên</label> <input class="form-control" id="idNhanVienBanHang"
-								name="idNhanVienBanHang" value="${model.idNhanVienBanHang}">
-						</div> --%>
-						<select class="form-control" id="idNhanVienBanHang"
-							name="idNhanVienBanHang">
-							<option value="">---Chọn nhân viên bán hàng---</option>
-							<c:forEach var="item" items="${nv.listResult}">
-								<option value="${item.id}">${item.hoVaTenString}</option>
-							</c:forEach>
-						</select>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="">Nhân
+								viên bán hàng </label> <select class="form-control"
+								id="idNhanVienBanHang" name="idNhanVienBanHang">
+
+								<option value="">---Chọn nhân viên bán hàng---</option>
+								<c:forEach var="item" items="${nv.listResult}">
+									<option value="${item.id}">${item.hoVaTenString}</option>
+								</c:forEach>
+							</select>
+						</div>
 						<div class="form-group">
 							<label class="col-sm-3 control-label no-padding-right" for="">Thông
 								tin khách hàng</label>
@@ -42,8 +41,10 @@
 							<h6 class="col">Thông tin đơn hàng</h6>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-3 control-label no-padding-right" for="">Số lượng sản phẩm trong đơn hàng</label> <input class="form-control" id="soLuongSanPham"
-								name="soLuongSanPham" value="${model.soLuongSanPham}">
+							<label class="col-sm-3 control-label no-padding-right" for="">Số
+								lượng sản phẩm trong đơn hàng</label> <input class="form-control"
+								id="soLuongSanPham" name="soLuongSanPham"
+								value="${model.soLuongSanPham}">
 						</div>
 						<div class="clearfix form-actions">
 							<div class="col-md-offset-3 col-md-9">
@@ -61,7 +62,7 @@
 		var editor = '';
 		$(document).ready(function() {
 			editor = CKEDITOR.replace('thongTinKhachHangString');
-		});	
+		});
 		$('#btnContinue').click(function(e) {
 			e.preventDefault();
 			var data = {};
@@ -71,8 +72,12 @@
 			});
 			data["thongTinKhachHangString"] = editor.getData();
 			console.log(data);
-			window.location.href = "/trang-chu/don-hang/them-san-pham-cho-don-hang?maNhanVien="+data.idNhanVienBanHang+"&thongTinKH="+data.thongTinKhachHangString+"&soLuong="+data.soLuongSanPham+"";
-		});
+			window.location.href = "/trang-chu/don-hang/them-san-pham-cho-don-hang?maNhanVien="
+									+ data.idNhanVienBanHang
+									+ "&thongTinKH="
+									+ data.thongTinKhachHangString
+									+ "&soLuong=" + data.soLuongSanPham + "";
+						});
 	</script>
 </body>
 </html>

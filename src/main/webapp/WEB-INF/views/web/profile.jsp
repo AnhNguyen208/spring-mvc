@@ -1,3 +1,4 @@
+<%@ page import="com.quanlydoanhthu.util.SecurityUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
@@ -19,7 +20,7 @@
 
 <body>
 	<div class="container pt-3">
-		<h4 class="font-weight-bold py-3 mb-4"> Cài đặt tài khoản</h4>
+		<h4 class="font-weight-bold py-3 mb-4">Cài đặt tài khoản</h4>
 		<div class="main-content">
 			<div id="snippetContent">
 				<div class="row gutters">
@@ -73,18 +74,34 @@
 									</div>
 									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<div class="form-group">
-											<label for="phone">Địa chỉ</label> <input type="text"
-												class="form-control" id="phone"
-												value="${model.diaChiString}"
-												placeholder="Enter phone number">
+											<label for="">Địa chỉ</label> <input type="text"
+												class="form-control" id="" value="${model.diaChiString}"
+												placeholder="r">
 										</div>
 									</div>
+									<c:if
+										test="${SecurityUtils.getPrincipal().getPhanQuyenString() == 'USER2'}">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+											<div class="form-group">
+												<label for="">Doanh thu</label> <input type="text"
+													class="form-control" id="" value="${model.doanhThuLong}"
+													placeholder="">
+											</div>
+										</div>
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+											<div class="form-group">
+												<label for="">Số lượng đơn hàng</label> <input type="text"
+													class="form-control" id="" value="${model.soLuongDonHang}"
+													placeholder="">
+											</div>
+										</div>
+									</c:if>
 								</div>
 
 							</div>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>

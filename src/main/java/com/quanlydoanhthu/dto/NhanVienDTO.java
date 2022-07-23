@@ -13,8 +13,14 @@ public class NhanVienDTO extends AbstractDTO<NhanVienDTO>{
 	private ChucVuDTO chucVuDTO;
 	private Long idNguoiDungLong;
 	private Long doanhThuLong;
+	private int soLuongDonHang;
 	
-	
+	public int getSoLuongDonHang() {
+		return soLuongDonHang;
+	}
+	public void setSoLuongDonHang(int soLuongDonHang) {
+		this.soLuongDonHang = soLuongDonHang;
+	}
 	public Long getDoanhThuLong() {
 		return doanhThuLong;
 	}
@@ -77,6 +83,4 @@ public class NhanVienDTO extends AbstractDTO<NhanVienDTO>{
 	public void setIdNguoiDungLong(Long idNguoiDungLong) {
 		this.idNguoiDungLong = idNguoiDungLong;
 	}
-	
-	
 }

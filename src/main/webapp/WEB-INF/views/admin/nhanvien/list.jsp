@@ -26,6 +26,7 @@
 				<div class="page-content">
 					<div class="row">
 						<div class="col-xs-12">
+							<h2>Danh sách nhân viên</h2>
 							<div class="col-xs-12">
 								<c:if test="${not empty message}">
 									<div class="alert alert-${alert}" role="alert">

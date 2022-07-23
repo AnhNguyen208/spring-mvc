@@ -10,6 +10,9 @@
 <body>
 	<section class="ftco-section">
 		<div class="container pt-3">
+			<c:if test="${not empty message}">
+				<div class="alert alert-${alert}" role="alert">${message}</div>
+			</c:if>
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-4">
 					<h2 class="heading-section">Danh sách đơn hàng</h2>
@@ -36,7 +39,7 @@
 										<td data-toggle="collapse" data-target="#collapse${item.id}"
 											aria-expanded="false" aria-controls="collapse${item.id}"
 											class=""><i class="fa" aria-hidden="true"></i> <i
-											class="bi bi-box-arrow-in-down"></i></td>
+											class="bi bi-cart4"></i></td>
 									</tr>
 									<tr>
 										<td colspan="6" id="collapse${item.id}" class="acc collapse"
@@ -64,6 +67,11 @@
 													</c:forEach>
 												</tbody>
 												<tfoot>
+													<tr>
+														<td colspan=3></td>
+														<td class="table-info">Chiết khấu:</td>
+														<td class="table-info">${item.chietKhauLong}</td>
+													</tr>
 													<tr>
 														<td colspan=3></td>
 														<td class="table-info">Tổng tiền:</td>

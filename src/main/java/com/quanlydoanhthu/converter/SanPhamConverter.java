@@ -26,6 +26,7 @@ public class SanPhamConverter {
 		sanPhamDTO.setHangString(sanPhamEntity.getHangEntity().getTenHangString());
 		sanPhamDTO.setMauSacString(sanPhamEntity.getMauSacString());
 		sanPhamDTO.setKichCoString(sanPhamEntity.getKichCoString());
+		sanPhamDTO.setLogoHangString(sanPhamEntity.getHangEntity().getAnhDaiDienString());
 		if(sanPhamEntity.getSoLuongInteger() == null) {
 			sanPhamDTO.setSoLuong(0);
 		}
