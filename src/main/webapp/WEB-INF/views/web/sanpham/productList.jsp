@@ -22,7 +22,10 @@
 			<div class="page-content">
 				<div class="row" id="page-content">
 					<div class="col-md-12">
+						<input type="text" id="myInput" onkeyup="myFunction()"
+							placeholder="Tìm kiếm theo tên sản phẩm" title="Type in a name">
 						<div class="table-wrap">
+							<h2></h2>
 							<table class="table myaccordion table-hover" id="accordion">
 								<thead>
 									<tr>
@@ -42,7 +45,7 @@
 											<td>${item.tenSanPhamString}</td>
 											<td>${item.anhDaiDienString}</td>
 											<td>${item.loaiSanPhamString}</td>
-											<td>${item.hangString}</td>
+											<td>${item.logoHangString}</td>
 											<td><a
 												class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
 												data-toggle="tooltip"
@@ -58,13 +61,13 @@
 											<td data-toggle="collapse" data-target="#collapse${item.id}"
 												aria-expanded="false" aria-controls="collapse${item.id}"
 												class=""><i class="fa" aria-hidden="true"></i> <i
-												class="bi bi-box-arrow-in-down"></i></td>
+												class="bi bi-cart4"></i></td>
 										</tr>
 										<tr>
 											<td colspan="6" id="collapse${item.id}" class="acc collapse"
 												data-parent="#accordion" style="">
 												<h4>Chi tiết sản phẩm</h4>
-												<table class="table myaccordion table-hover" id="accordion">
+												<table class="table myaccordion table-hover" id="accordion1">
 													<thead>
 														<tr>
 															<th>#</th>
@@ -134,6 +137,24 @@
 						console.log(error);
 					}
 					});
+			}
+		function myFunction() {
+			  var input, filter, table, tr, td, i, txtValue;
+			  input = document.getElementById("myInput");
+			  filter = input.value.toUpperCase();
+			  table = document.getElementById("accordion");
+			  tr = table.getElementsByTagName("tr");
+			  for (i = 0; i < tr.length; i++) {
+			    td = tr[i].getElementsByTagName("td")[0];
+			    if (td) {
+			      txtValue = td.textContent || td.innerText;
+			      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			        tr[i].style.display = "";
+			      } else {
+			        tr[i].style.display = "none";
+			      }
+			    }       
+			  }
 			}
 	</script>
 </body>

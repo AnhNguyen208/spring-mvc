@@ -103,12 +103,9 @@ public class AbstractDTO<T> {
 		this.id = id;
 	}
 
-	
 	public void setCreatedDateTimestamp(Timestamp createdDateTimestamp) {
 		this.createdDateTimestamp = createdDateTimestamp;
 	}
-
-	
 
 	public void setModifiedDateTimestamp(Timestamp modifiedDateTimestamp) {
 		this.modifiedDateTimestamp = modifiedDateTimestamp;

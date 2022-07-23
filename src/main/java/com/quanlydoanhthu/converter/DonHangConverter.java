@@ -43,6 +43,7 @@ public class DonHangConverter {
 		}
 		donHangDTO.setSoLuongSanPham(donHangEntity.getDonHangSanPhamEntities().size());
 		donHangDTO.setThongTinDonHangDtos(sanPhamDTOs);
+		donHangDTO.setChietKhauLong(donHangEntity.getChietKhauLong());
 		donHangDTO.setTongTienDonHang(sanPhamDTOs);
 		return donHangDTO;
 	}
@@ -62,6 +63,7 @@ public class DonHangConverter {
 		donHangEntity.setCreatedDate(donHangDTO.getCreatedDateTimestamp());
 		donHangEntity.setNhanVienEntity(nhanVienRepository.findById(donHangDTO.getIdNhanVienBanHang()));
 		donHangEntity.setThongTinKhachHangString(donHangDTO.getThongTinKhachHangString());
+		donHangEntity.setChietKhauLong(donHangDTO.getChietKhauLong());
 		List<DonHangSanPhamEntity> donHangSanPhamEntities = new ArrayList<DonHangSanPhamEntity>();
 		DonHangSanPhamEntity donHangSanPhamEntity = new DonHangSanPhamEntity();
 		CompositeKey key = new CompositeKey();

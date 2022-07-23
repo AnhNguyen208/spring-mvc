@@ -37,10 +37,12 @@ public class NhapHangConverter {
 			SanPhamEntity sanPhamEntity = nhapHangSanPhamEntity.getSanPhamEntity();
 			sanPhamDTO = sanPhamConverter.toDTO(sanPhamEntity);
 			sanPhamDTO.setSoLuongNhap(nhapHangSanPhamEntity.getSoLuongInteger());
+			sanPhamDTO.setGiaNhapLong1(nhapHangSanPhamEntity.getGiaLong());
 			sanPhamDTOs.add(sanPhamDTO);
 		}
 		nhapHangDTO.setSoLuongSanPham(nhapHangEntity.getNhapHangSanPhamEntities().size());
 		nhapHangDTO.setThongTinNhapHangDtos(sanPhamDTOs);
+		nhapHangDTO.setChietKhauLong(nhapHangEntity.getChietKhauLong());
 		nhapHangDTO.setTongTienDonHang(sanPhamDTOs);
 		return nhapHangDTO;
 	}
@@ -56,6 +58,7 @@ public class NhapHangConverter {
 	public NhapHangEntity toEntity(NhapHangDTO nhapHangDTO, NhapHangEntity nhapHangEntity) {
 		nhapHangEntity.setId(nhapHangDTO.getId());
 		nhapHangEntity.setNhanVienEntity(nhanVienRepository.findById(nhapHangDTO.getIdNhanVienNhapHang()));
+		nhapHangEntity.setChietKhauLong(nhapHangDTO.getChietKhauLong());
 		List<NhapHangSanPhamEntity> nhapHangSanPhamEntities = new ArrayList<NhapHangSanPhamEntity>();
 		NhapHangSanPhamEntity nhapHangSanPhamEntity = new NhapHangSanPhamEntity();
 		CompositeKey2 key = new CompositeKey2();

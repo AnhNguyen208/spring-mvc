@@ -13,64 +13,50 @@
 	<div class="container pt-3">
 
 		<div class="row justify-content-center">
-			<h2 class="heading-section">Thêm đơn hàng</h2>
+			<h2 class="heading-section">Thêm đơn nhập hàng</h2>
 		</div>
 		<div class="page-content">
 			<div class="row">
 				<div class="col-md-12">
 					<form action="<c:url value='/trang-chu/don-hang/them'/>"
 						id="formSubmit" method="get">
-						<%-- <div class="form-group">
-							<label class="col-sm-3 control-label no-padding-right" for="">Mã
-								nhân viên</label> <input class="form-control" id="idNhanVienBanHang"
-								name="idNhanVienBanHang" value="${model.idNhanVienBanHang}">
-						</div> --%>
 						<div class="form-group">
 							<label class="col-sm-3 control-label no-padding-right" for="">Nhân
-								viên bán hàng </label> <select class="form-control"
-								id="idNhanVienBanHang" name="idNhanVienBanHang">
+								viên nhập hàng </label> <select class="form-control"
+								id="idNhanVienNhapHang" name="idNhanVienNhapHang">
 
-								<option value="">---Chọn nhân viên bán hàng---</option>
+								<option value="">---Chọn nhân viên nhập hàng---</option>
 								<c:forEach var="item" items="${nv.listResult}">
 									<option value="${item.id}">${item.hoVaTenString}</option>
 								</c:forEach>
 							</select>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label no-padding-right" for="">Thông
-								tin khách hàng</label>
-							<textarea class="form-control" id="thongTinKhachHangString"
-								name="thongTinKhachHangString" rows="3">${model.thongTinKhachHangString}</textarea>
-						</div>
 						<div class="row">
 							<h6 class="col">Thông tin đơn hàng</h6>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-6 control-label no-padding-right" for="">Số
-								lượng sản phẩm trong đơn hàng</label> <input class="form-control"
-								id="soLuongSanPham" name="soLuongSanPham"
-								value="${model.soLuongSanPham}">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" type="button" id="btnAddProduct">
+								<i></i> Thêm sản phẩm
+							</button>
+							<button class="btn btn-info" type="button" id="btnDeleteProduct">
+								<i></i> Xóa sản phẩm
+							</button>
 						</div>
-						<c:forEach var="item" items="${model.thongTinDonHangDtos}">
-						<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="">Sản phẩm</label> 
-							<select class="form-control" id="idSP" name="idSP">
-								<option value="">---Chọn sản phẩm---</option>
-								<c:forEach var="item" items="${sp.listResult}">
-									<option value="${item.id}">${item.tenSanPhamString}
-										${item.soLuong}</option>
-								</c:forEach>
-							</select>
+						<c:forEach var="item" items="${model.thongTinNhapHangDtos}">
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="">Sản
+									phẩm</label> <select class="form-control" id="idSP" name="idSP">
+									<option value="">---Chọn sản phẩm---</option>
+									<c:forEach var="item" items="${sp.listResult}">
+										<option value="${item.id}">${item.tenSanPhamString}
+											${item.soLuong}</option>
+									</c:forEach>
+								</select>
 							</div>
-							<%-- <div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="">Mã
-									sản phẩm</label> <input class="form-control" id="idSP" name="idSP"
-									value="${item.id}">
-							</div> --%>
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right" for="">Số
 									lượng</label> <input class="form-control" id="soLuong" name="soLuong"
-									value="${item.soLuongBan}">
+									value="${item.soLuongNhap}">
 							</div>
 						</c:forEach>
 						<div class="form-group">
@@ -95,17 +81,27 @@
 		</div>
 	</div>
 	<script>
-		var editor = '';
-		$(document).ready(function() {
-			editor = CKEDITOR.replace('thongTinKhachHangString');
-		});
+		$('#btnAddProduct').click(
+				function(e) {
+					e.preventDefault();
+					var soLuong = ${model.soLuongSanPham}+1;
+					window.location.href = "/trang-chu/nhap-hang/them?soLuong="
+							+ soLuong + "";
+				});
+		$('#btnDeleteProduct').click(
+				function(e) {
+					e.preventDefault();
+					var soLuong = ${model.soLuongSanPham}-1;
+					window.location.href = "/trang-chu/nhap-hang/them?soLuong="
+							+ soLuong + "";
+				});
 		$('#btnAddOrUpdate').click(function(e) {
 			e.preventDefault();
 			var data = {};
 			var idSanPhamList = [];
 			data["idSanPhamList"] = idSanPhamList;
 			var soLuongBanList = [];
-			data["soLuongBanList"] = soLuongBanList;
+			data["soLuongNhapList"] = soLuongBanList;
 			var formData = $('#formSubmit').serializeArray();
 			$.each(formData, function(i, v) {
 				if (v.name == 'idSP') {
@@ -118,25 +114,25 @@
 					data["" + v.name + ""] = v.value;
 				}
 			});
-			data["thongTinKhachHangString"] = editor.getData();
+			data["soLuongSanPham"] = ${model.soLuongSanPham};
 			console.log(data);
 			addDonHang(data);
 		});
 
 		function addDonHang(data) {
 			$.ajax({
-				url : '/api/donhang',
+				url : '/api/nhaphang',
 				type : 'POST',
 				contentType : 'application/json; charset=UTF-8',
 				data : JSON.stringify(data),
 				dataType : 'json',
 				success : function(result) {
 					console.log(result);
-					window.location.href = "/trang-chu/don-hang/danh-sach?message=insert_success";
+					window.location.href = "/trang-chu/nhap-hang/danh-sach?message=insert_success";
 				},
 				error : function(error) {
 					console.log(error);
-					window.location.href = "/trang-chu/don-hang/danh-sach?message=error_system";
+					window.location.href = "/trang-chu/nhap-hang/danh-sach?message=error_system";
 				}
 			});
 		}
