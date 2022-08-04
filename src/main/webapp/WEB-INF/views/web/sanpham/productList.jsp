@@ -45,7 +45,7 @@
 											<td>${item.tenSanPhamString}</td>
 											<td>${item.anhDaiDienString}</td>
 											<td>${item.loaiSanPhamString}</td>
-											<td>${item.logoHangString}</td>
+											<td>${item.hangString}</td>
 											<td><a
 												class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
 												data-toggle="tooltip"

@@ -1,5 +1,8 @@
 package com.quanlydoanhthu.service.impl;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -160,7 +163,9 @@ public class NhanVienService implements INhanVienService {
 		nhanVienDTO = nhanVienConverter.toDTO(nhanVienRepository.findById(idLong));
 		if (nhanVienDTO.getMaChucVuString().equals("BH")) {
 			Long doanhThuLong = (long) 0;
-			List<DonHangEntity> donHangEntities = donHangRepository.findByNhanVienEntity(nhanVienRepository.findById(idLong));
+			LocalDate now = LocalDate.now();
+			LocalDate firstDay = now.with(TemporalAdjusters.firstDayOfMonth());
+			List<DonHangEntity> donHangEntities = donHangRepository.findByNhanVienEntityAndCreatedDateAfter(nhanVienRepository.findById(idLong), Date.from(firstDay.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
 			for (DonHangEntity donHangEntity : donHangEntities) {
 				DonHangDTO donHangDTO = donHangConverter.toDTO(donHangEntity);
 				doanhThuLong = doanhThuLong + donHangDTO.getTongTienDonHang();

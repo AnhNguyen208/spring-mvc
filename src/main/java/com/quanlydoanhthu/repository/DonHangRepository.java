@@ -12,4 +12,5 @@ public interface DonHangRepository extends JpaRepository<DonHangEntity, Long>{
 	List<DonHangEntity> findByNhanVienEntity(NhanVienEntity nhanVienEntity);
 	List<DonHangEntity> findByNhanVienEntityAndCreatedDateBetween(NhanVienEntity nhanVienEntity, Date date1, Date date2);
 	List<DonHangEntity> findByCreatedDateBetween(Date date1, Date date2);
+	List<DonHangEntity> findByNhanVienEntityAndCreatedDateAfter(NhanVienEntity nhanVienEntity, Date date);
 }
