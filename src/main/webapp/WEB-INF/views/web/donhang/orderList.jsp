@@ -47,7 +47,7 @@
 										<td><button id="btnDelete" type="button"
 												onclick="warningBeforeDelete(${item.id})"
 												class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-												data-toggle="tooltip" title='Xóa bài viết'>
+												data-toggle="tooltip" title='Xóa đơn hàng'>
 												<span> <i class="bi bi-trash">Delete</i>
 												</span>
 											</button></td>

@@ -36,8 +36,10 @@
 <body>
 	<!-- Navigation -->
 	<%@ include file="/common/web/header.jsp"%>
+	<br>
 
 	<dec:body />
+	<br>
 
 	<!-- Footer -->
 	<%@ include file="/common/web/footer.jsp"%>

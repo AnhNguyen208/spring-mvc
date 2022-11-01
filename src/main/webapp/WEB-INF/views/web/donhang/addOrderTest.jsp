@@ -13,7 +13,7 @@
 	<div class="container pt-3">
 
 		<div class="row justify-content-center">
-			<h2 class="heading-section">Thêm đơn hàng</h2>
+			<h2 class="heading-section">Add order</h2>
 		</div>
 		<div class="page-content">
 			<div class="row">
@@ -21,63 +21,83 @@
 					<form action="<c:url value='/trang-chu/don-hang/them'/>"
 						id="formSubmit" method="get">
 						<div class="form-group">
-							<label class="col-sm-3 control-label no-padding-right" for="">Nhân
-								viên bán hàng </label> <select class="form-control"
-								id="idNhanVienBanHang" name="idNhanVienBanHang">
+							<label class="col-sm-3 control-label no-padding-right" for="">Staff
+							</label> <select class="form-control" id="idNhanVienBanHang"
+								name="idNhanVienBanHang">
 
-								<option value="">---Chọn nhân viên bán hàng---</option>
+								<option value="">---Select sales staff---</option>
 								<c:forEach var="item" items="${nv.listResult}">
 									<option value="${item.id}">${item.hoVaTenString}</option>
 								</c:forEach>
 							</select>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-3 control-label no-padding-right" for="">Thông
-								tin khách hàng</label>
+							<label class="col-sm-3 control-label no-padding-right" for="">Customer
+								information</label>
 							<textarea class="form-control" id="thongTinKhachHangString"
 								name="thongTinKhachHangString" rows="3">${model.thongTinKhachHangString}</textarea>
 						</div>
 						<div class="row">
-							<h6 class="col">Thông tin đơn hàng</h6>
+							<h6 class="col">Order information</h6>
 						</div>
 						<div class="col-md-offset-3 col-md-9">
 							<button class="btn btn-info" type="button" id="btnAddProduct">
-								<i></i> Thêm sản phẩm
+								<i></i> Add product
 							</button>
 							<button class="btn btn-info" type="button" id="btnDeleteProduct">
-								<i></i> Xóa sản phẩm
+								<i></i> Delete product
 							</button>
 						</div>
-						<c:forEach var="item" items="${model.thongTinDonHangDtos}">
-							<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="">Sản
-									phẩm</label> <select class="form-control" id="idSP" name="idSP">
-									<option value="">---Chọn sản phẩm---</option>
-									<c:forEach var="item" items="${sp.listResult}">
-										<option value="${item.id}">${item.tenSanPhamString}
-											${item.soLuong}</option>
-									</c:forEach>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="">Số
-									lượng</label> <input class="form-control" id="soLuong" name="soLuong"
-									value="${item.soLuongBan}">
-							</div>
-						</c:forEach>
+						<br>
+						<table class="table myaccordion table-hover" id="accordion">
+							<thead>
+								<tr>
+									<th class="center">Product</th>
+									<th class="center">Quantity</th>
+									<th scope="row" colspan=3>Manipulation</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="item" items="${model.thongTinDonHangDtos}">
+									<tr>
+										<td><select class="form-control" id="idSP" name="idSP">
+												<option value="">---Select product---</option>
+												<c:forEach var="item" items="${sp.listResult}">
+													<option value="${item.id}">${item.tenSanPhamString}
+														${item.soLuong}</option>
+												</c:forEach>
+										</select></td>
+										<td><input class="form-control" id="soLuong"
+											name="soLuong" value="${item.soLuongBan}"></td>
+										<td><button id="btnDelete" type="button"
+												onclick="warningBeforeDelete(${item.id})"
+												class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+												data-toggle="tooltip" title='Xóa sản phẩm'>
+												<span> <i class="bi bi-trash">Delete</i>
+												</span>
+											</button></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan=5></td>
+								</tr>
+							</tfoot>
+						</table>
 						<div class="form-group">
-							<label class="col-sm-6 control-label no-padding-right" for="">Chiết
-								khấu</label> <input class="form-control" id="chietKhauLong"
+							<label class="col-sm-6 control-label no-padding-right" for="">Discount</label>
+							<input class="form-control" id="chietKhauLong"
 								name="chietKhauLong" value="${model.chietKhauLong}">
 						</div>
 						<div class="clearfix form-actions">
 							<div class="col-md-offset-3 col-md-9">
 								<button class="btn btn-info" type="button" id="btnAddOrUpdate">
-									<i class="ace-icon fa fa-check bigger-110"></i> Thêm đơn hàng
+									<i class="ace-icon fa fa-check bigger-110"></i> Add order
 								</button>
 								&nbsp; &nbsp; &nbsp;
 								<button class="btn" type="reset">
-									<i class="ace-icon fa fa-undo bigger-110"></i> Hủy
+									<i class="ace-icon fa fa-undo bigger-110"></i> Cancel
 								</button>
 							</div>
 						</div>
