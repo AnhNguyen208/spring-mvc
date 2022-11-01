@@ -14,7 +14,7 @@ import com.quanlydoanhthu.util.SecurityUtils;
 @Controller(value = "nhanVienControllerOfUser")
 public class NhanVienController {
 	@Autowired
-	INhanVienService nhanVienService;
+	private INhanVienService nhanVienService;
 	
 	@RequestMapping(value = "/trang-chu/thong-tin", method = RequestMethod.GET)
 	public ModelAndView profile() {

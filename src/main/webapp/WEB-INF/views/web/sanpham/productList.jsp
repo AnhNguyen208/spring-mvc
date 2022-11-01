@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sản phẩm</title>
+<title>Product</title>
 </head>
 <body>
 	<div class="container pt-3">
@@ -16,26 +16,25 @@
 			</c:if>
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-4">
-					<h2 class="heading-section">Danh sách sản phẩm</h2>
+					<h2 class="heading-section">Product list</h2>
 				</div>
 			</div>
 			<div class="page-content">
 				<div class="row" id="page-content">
 					<div class="col-md-12">
 						<input type="text" id="myInput" onkeyup="myFunction()"
-							placeholder="Tìm kiếm theo tên sản phẩm" title="Type in a name">
+							placeholder="Search" title="Type in a name">
 						<div class="table-wrap">
 							<h2></h2>
 							<table class="table myaccordion table-hover" id="accordion">
 								<thead>
 									<tr>
-										<th scope="row">Mã sản phẩm</th>
-										<th scope="row">Tên sản phẩm</th>
-										<th scope="row">Ảnh minh họa</th>
-										<th scope="row">Loại sản phẩm</th>
-										<th scope="row">Thương hiệu thời trang</th>
-
-										<th scope="row" colspan=3>Thao tác</th>
+										<th scope="row">Product code</th>
+										<th scope="row">Product's name</th>
+										<th scope="row">Illustration</th>
+										<th scope="row">Product type</th>
+										<th scope="row">Fashion brands</th>
+										<th scope="row" colspan=3>Manipulation</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -50,32 +49,32 @@
 												class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
 												data-toggle="tooltip"
 												href="/trang-chu/san-pham/chinh-sua?id=${item.id}"><i
-													class="bi bi-pencil-square">Chỉnh sửa</i></a></td>
+													class="bi bi-pencil-square">Edit</i></a></td>
 											<td><button id="btnDelete" type="button"
 													onclick="warningBeforeDelete(${item.id})"
 													class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-													data-toggle="tooltip" title='Xóa bài viết'>
-													<span> <i class="bi bi-trash">Xóa</i>
+													data-toggle="tooltip" title='Xóa sản phẩm'>
+													<span> <i class="bi bi-trash">Delete</i>
 													</span>
 												</button></td>
 											<td data-toggle="collapse" data-target="#collapse${item.id}"
 												aria-expanded="false" aria-controls="collapse${item.id}"
 												class=""><i class="fa" aria-hidden="true"></i> <i
-												class="bi bi-cart4"></i></td>
+												class="bi bi-chevron-double-down"></i></td>
 										</tr>
 										<tr>
 											<td colspan="6" id="collapse${item.id}" class="acc collapse"
 												data-parent="#accordion" style="">
-												<h4>Chi tiết sản phẩm</h4>
+												<h4>Product details</h4>
 												<table class="table myaccordion table-hover" id="accordion1">
 													<thead>
 														<tr>
 															<th>#</th>
-															<th scope="row">Màu sắc</th>
-															<th scope="row">Kích cỡ</th>
-															<th scope="row">Giá bán</th>
-															<th scope="row">Giá nhập</th>
-															<th scope="row">Số lượng</th>
+															<th scope="row">Color</th>
+															<th scope="row">Size</th>
+															<th scope="row">Price</th>
+															<th scope="row">Import price</th>
+															<th scope="row">Quantity</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -132,9 +131,11 @@
 					data : JSON.stringify(data),
 					success : function(result) {
 						console.log(result);
+						window.location.href = "/trang-chu/san-pham/danh-sach?message=update_success";
 					},
 					error : function(error) {
 						console.log(error);
+						window.location.href = "/trang-chu/san-pham/danh-sach?message=error_system";
 					}
 					});
 			}

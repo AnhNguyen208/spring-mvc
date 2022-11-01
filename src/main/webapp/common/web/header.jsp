@@ -13,12 +13,12 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="<c:url value='/trang-chu'/>">Trang chủ <span
+					href="<c:url value='/trang-chu'/>">Home<span
 						class="sr-only">(current)</span>
 				</a></li>
 				<security:authorize access="isAnonymous()">
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value='/dang-nhap'/>">Đăng nhập</a></li>
+						href="<c:url value='/dang-nhap'/>">Login</a></li>
 				</security:authorize>
 				<security:authorize access="isAuthenticated()">
 					<div class="dropdown">
@@ -29,39 +29,36 @@
 						<c:if
 							test="${SecurityUtils.getPrincipal().getPhanQuyenString() == 'USER1'}">
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<li class="dropdown-header">Tài khoản</li>
-								<li><a class="dropdown-item" href="/trang-chu/thong-tin">Thông
-										tin tài khoản</a></li>
-								<li><a class="dropdown-item" href="<c:url value='/thoat'/>">Thoát</a></li>
-								<li class="dropdown-header">Đơn hàng</li>
+								<li class="dropdown-header">Account</li>
+								<li><a class="dropdown-item" href="/trang-chu/thong-tin">Account information</a></li>
+								<li><a class="dropdown-item" href="<c:url value='/thoat'/>">Logout</a></li>
+								<li class="dropdown-header">Order</li>
 								<li><a class="dropdown-item"
-									href="/trang-chu/don-hang/danh-sach">Danh sách đơn hàng</a></li>
+									href="/trang-chu/don-hang/danh-sach">Order list</a></li>
 								<li><a class="dropdown-item"
-									href="/trang-chu/don-hang/them">Thêm đơn hàng</a></li>
-								<li class="dropdown-header">Nhập hàng</li>
+									href="/trang-chu/don-hang/them">Add order</a></li>
+								<li class="dropdown-header">Goods receipt</li>
 								<li><a class="dropdown-item"
-									href="/trang-chu/nhap-hang/danh-sach">Danh sách hóa đơn
-										nhập hàng</a></li>
+									href="/trang-chu/nhap-hang/danh-sach">List of goods receipt</a></li>
 								<li><a class="dropdown-item"
-									href="/trang-chu/nhap-hang/them">Thêm hóa đơn nhập hàng</a></li>
+									href="/trang-chu/nhap-hang/them">Add goods receipt</a></li>
 								<li><a class="dropdown-item"
-									href="/trang-chu/san-pham/danh-sach">Sản phẩm</a></li>
+									href="/trang-chu/san-pham/danh-sach">Product</a></li>
 								<li><a class="dropdown-item"
-									href="/trang-chu/san-pham/them">Thêm sản phẩm</a></li>
+									href="/trang-chu/san-pham/them">Add product</a></li>
 							</ul>
 						</c:if>
 						<c:if
 							test="${SecurityUtils.getPrincipal().getPhanQuyenString() == 'USER2'}">
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<li class="dropdown-header">Tài khoản</li>
-								<li><a class="dropdown-item" href="/trang-chu/thong-tin">Thông
-										tin tài khoản</a></li>
-								<li><a class="dropdown-item" href="<c:url value='/thoat'/>">Thoát</a></li>
-								<li class="dropdown-header">Đơn hàng</li>
+								<li class="dropdown-header">Account</li>
+								<li><a class="dropdown-item" href="/trang-chu/thong-tin">Account information</a></li>
+								<li><a class="dropdown-item" href="<c:url value='/thoat'/>">Logout</a></li>
+								<li class="dropdown-header">Order</li>
 								<li><a class="dropdown-item"
-									href="/trang-chu/don-hang/danh-sach-cua-nhan-vien-ban-hang">Danh sách đơn hàng</a></li>
+									href="/trang-chu/don-hang/danh-sach-cua-nhan-vien-ban-hang">Order list</a></li>
 								<li><a class="dropdown-item"
-									href="/trang-chu/don-hang/them">Thêm đơn hàng</a></li>
+									href="/trang-chu/don-hang/them">Add order</a></li>
 							</ul>
 						</c:if>
 					</div>

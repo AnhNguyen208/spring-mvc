@@ -46,13 +46,13 @@
 								name="loaiSanPhamString" value="${sanPham.loaiSanPhamString}">
 						</div>
 						<div class="form-group">
-							<label class="col-sm-6 control-label no-padding-right" for="">Màu sắc
-								sản phẩm</label> <input class="form-control" id="mauSacString"
+							<label class="col-sm-6 control-label no-padding-right" for="">Màu
+								sắc sản phẩm</label> <input class="form-control" id="mauSacString"
 								name="mauSacString" value="${sanPham.mauSacString}">
 						</div>
 						<div class="form-group">
-							<label class="col-sm-6 control-label no-padding-right" for="">Kích cỡ
-								sản phẩm</label> <input class="form-control" id="kichCoString"
+							<label class="col-sm-6 control-label no-padding-right" for="">Kích
+								cỡ sản phẩm</label> <input class="form-control" id="kichCoString"
 								name="kichCoString" value="${sanPham.kichCoString}">
 						</div>
 						<div class="form-group">
@@ -100,21 +100,22 @@
 		});
 
 		function updateSanPham(data) {
-			$.ajax({
-				url : '/api/sanpham',
-				type : 'PUT',
-				contentType : 'application/json; charset=UTF-8',
-				data : JSON.stringify(data),
-				dataType : 'json',
-				success : function(result) {
-					console.log(result);
-					window.location.href = "/trang-chu/san-pham/danh-sach?message=update_success";
-				},
-				error : function(error) {
-					console.log(error);
-					window.location.href = "/trang-chu/san-pham/danh-sach?message=error_system";
-				}
-			});
+			$
+					.ajax({
+						url : '/api/sanpham',
+						type : 'PUT',
+						contentType : 'application/json; charset=UTF-8',
+						data : JSON.stringify(data),
+						dataType : 'json',
+						success : function(result) {
+							console.log(result);
+							window.location.href = "/trang-chu/san-pham/danh-sach?message=update_success";
+						},
+						error : function(error) {
+							console.log(error);
+							window.location.href = "/trang-chu/san-pham/danh-sach?message=error_system";
+						}
+					});
 		}
 	</script>
 </body>

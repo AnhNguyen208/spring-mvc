@@ -19,11 +19,11 @@ import com.quanlydoanhthu.service.dao.INhapHangService;
 @Service
 public class NhapHangService implements INhapHangService {
 	@Autowired
-	NhapHangRepository nhapHangRepository;
+	private NhapHangRepository nhapHangRepository;
 	@Autowired
-	NhapHangConverter nhapHangConverter;
+	private NhapHangConverter nhapHangConverter;
 	@Autowired
-	NhapHangSanPhamRepository nhapHangSanPhamRepository;
+	private NhapHangSanPhamRepository nhapHangSanPhamRepository;
 
 	@Override
 	public List<NhapHangDTO> findAll() {
@@ -51,8 +51,9 @@ public class NhapHangService implements INhapHangService {
 		return nhapHangDTO;
 	}
 
-	@Transactional
+	
 	@Override
+	@Transactional
 	public NhapHangDTO save1(NhapHangDTO nhapHangDTO) {
 		NhapHangEntity nhapHangEntity = new NhapHangEntity();
 		nhapHangEntity = nhapHangConverter.toEntity(nhapHangDTO);

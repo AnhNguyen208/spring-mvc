@@ -23,12 +23,6 @@ public class NguoiDungEntity extends BaseEntity{
 	@Column(name = "MatKhau")
 	private String matKhauString;
 
-	@Column(name = "TrangThai")
-	private Integer trangThai;
-
-	@Column(name = "IdPhanQuyen")
-	private Long idPhanQuyen;
-
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "idNDNhanVien", referencedColumnName = "id")
     private NhanVienEntity nhanVienEntity;
@@ -60,22 +54,6 @@ public class NguoiDungEntity extends BaseEntity{
 
 	public void setMatKhauString(String matKhauString) {
 		this.matKhauString = matKhauString;
-	}
-
-	public Integer getTrangThai() {
-		return trangThai;
-	}
-
-	public void setTrangThai(Integer trangThai) {
-		this.trangThai = trangThai;
-	}
-
-	public Long getIdPhanQuyen() {
-		return idPhanQuyen;
-	}
-
-	public void setIdPhanQuyen(Long idPhanQuyen) {
-		this.idPhanQuyen = idPhanQuyen;
 	}
 
 	public NhanVienEntity getNhanVienEntity() {

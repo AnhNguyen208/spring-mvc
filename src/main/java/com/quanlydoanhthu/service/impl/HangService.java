@@ -15,9 +15,9 @@ import com.quanlydoanhthu.service.dao.IHangService;
 @Service
 public class HangService implements IHangService {
 	@Autowired
-	HangRepository hangRepository;
+	private HangRepository hangRepository;
 	@Autowired 
-	HangConverter hangConverter;
+	private HangConverter hangConverter;
 
 	@Override
 	public List<HangDTO> findAll() {

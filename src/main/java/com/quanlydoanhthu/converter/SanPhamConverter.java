@@ -11,9 +11,9 @@ import com.quanlydoanhthu.repository.LoaiSPRepository;
 @Component
 public class SanPhamConverter {
 	@Autowired
-	LoaiSPRepository loaiSPRepository;
+	private LoaiSPRepository loaiSPRepository;
 	@Autowired
-	HangRepository hangRepository;
+	private HangRepository hangRepository;
 	
 	public SanPhamDTO toDTO(SanPhamEntity sanPhamEntity) {
 		SanPhamDTO sanPhamDTO = new SanPhamDTO();

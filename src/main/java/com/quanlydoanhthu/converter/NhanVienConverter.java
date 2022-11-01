@@ -9,7 +9,7 @@ import com.quanlydoanhthu.entity.NhanVienEntity;
 @Component
 public class NhanVienConverter {
 	@Autowired
-	ChucVuConverter chucVuConverter;
+	private ChucVuConverter chucVuConverter;
 	
 	public NhanVienDTO toDTO(NhanVienEntity nhanVienEntity) {
 		NhanVienDTO nhanVienDTO = new NhanVienDTO(); 

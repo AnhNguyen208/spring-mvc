@@ -14,7 +14,7 @@ import com.quanlydoanhthu.service.dao.INhapHangService;
 @RestController(value = "nhapHangAPIOfWeb")
 public class NhapHangAPI {
 	@Autowired
-	INhapHangService nhapHangService;
+	private INhapHangService nhapHangService;
 
 	@PostMapping("/api/nhaphang")
 	public NhapHangDTO createNhapHang(@RequestBody String string) {

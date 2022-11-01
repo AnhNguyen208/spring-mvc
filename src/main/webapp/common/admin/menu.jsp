@@ -38,7 +38,7 @@
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-list"></i>
                 <span class="menu-text"></span>
-                Quản lý 
+                Manage 
                 <b class="arrow fa fa-angle-down"></b>
             </a>
             <b class="arrow"></b>
@@ -46,11 +46,11 @@
                 <li>
                     <a href="<c:url value='/quan-tri/nhan-vien/danh-sach?page=1&limit=2'/>">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Nhân viên
+                        Staff
                     </a>
                     <a href="<c:url value='/quan-tri/trang-chu/thong-ke'/>">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Thống kê doanh thu
+                        Revenue statistics
                     </a>
                     <b class="arrow"></b>
                 </li>

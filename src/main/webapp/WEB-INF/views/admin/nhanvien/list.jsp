@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Danh sách nhân viên</title>
+<title>List of employee</title>
 </head>
 
 <body>
@@ -17,8 +17,7 @@
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
-						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="">Trang
-								chủ</a></li>
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="">Home</a></li>
 					</ul>
 					<!-- /.breadcrumb -->
 				</div>
@@ -26,7 +25,7 @@
 				<div class="page-content">
 					<div class="row">
 						<div class="col-xs-12">
-							<h2>Danh sách nhân viên</h2>
+							<h2>List of employee</h2>
 							<div class="col-xs-12">
 								<c:if test="${not empty message}">
 									<div class="alert alert-${alert}" role="alert">
@@ -62,10 +61,10 @@
 												<thead>
 													<tr>
 														<th><input type="checkbox" id="checkAll"></th>
-														<th>Tên nhân viên</th>
-														<th>Ảnh đại diện</th>
-														<th>Số điện thoại</th>
-														<th>Thao tác</th>
+														<th>Fullname</th>
+														<th>Avatar</th>
+														<th>Phone number</th>
+														<th>Manipulation</th>
 													</tr>
 												</thead>
 												<tbody>

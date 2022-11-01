@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Thống kê</title>
+<title>Statistics</title>
 </head>
 <body>
 	<div class="main-content">
@@ -92,25 +92,29 @@
 					Đến ngày: <input type="date" id="datepicker1">
 				</p> -->
 
-				<label for="date1">Từ ngày:</label> <input type="date"
-					id="datepicker" name="date1"> <label for="date2">Đến
-					ngày:</label> <input type="date" id="datepicker1" name="date2">
+				<label for="date1">From:</label> <input type="date"
+					id="datepicker" name="date1"> <label for="date2">To:</label> <input type="date" id="datepicker1" name="date2">
 
 				<button class="btn btn-info" type="button" id="btnSearch">
-					<i class="ace-icon fa fa-filter bigger-110"></i> Tìm kiếm
+					<i class="ace-icon fa fa-filter bigger-110"></i> Search
 				</button>
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="col-xs-12">
+							<div class="widget-box table-filter">
+								<div class="table-btn-controls">
+									<div class="pull-right tableTools-container"></div>
+								</div>
+							</div>
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="table-responsive">
-										<h4>Thống kê theo đơn hàng</h4>
+										<h4>Statistics by order</h4>
 										<table class="table table-bordered">
 											<thead>
 												<tr>
-													<th>Mã đơn hàng</th>
-													<th>Tổng tiền đơn hàng</th>
+													<th>Code orders</th>
+													<th>Total amount</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -141,14 +145,14 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="table-responsive">
-										<h4>Thống kê doanh thu theo nhân viên</h4>
+										<h4>Statistics by employee</h4>
 										<table class="table table-bordered">
 											<thead>
 												<tr>
-													<th>Mã nhân viên</th>
-													<th>Tên nhân viên</th>
-													<th>Số đơn hàng</th>
-													<th>Doanh thu</th>
+													<th>Staff code</th>
+													<th>Fullname</th>
+													<th>Quantity of order</th>
+													<th>Turnover</th>
 												</tr>
 											</thead>
 											<tbody>

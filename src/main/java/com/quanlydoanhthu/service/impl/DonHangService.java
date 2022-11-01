@@ -20,13 +20,13 @@ import com.quanlydoanhthu.service.dao.IDonHangService;
 @Service
 public class DonHangService implements IDonHangService {
 	@Autowired
-	DonHangRepository donHangRepository;
+	private DonHangRepository donHangRepository;
 	@Autowired
-	DonHangConverter donHangConverter;
+	private DonHangConverter donHangConverter;
 	@Autowired
-	DonHangSanPhamRepository donHangSanPhamRepository;
+	private DonHangSanPhamRepository donHangSanPhamRepository;
 	@Autowired
-	NhanVienRepository nhanVienRepository;
+ 	private NhanVienRepository nhanVienRepository;
 
 	@Override
 	public List<DonHangDTO> findAll() {

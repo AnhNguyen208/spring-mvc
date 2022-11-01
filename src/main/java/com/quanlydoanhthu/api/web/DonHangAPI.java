@@ -16,7 +16,7 @@ import com.quanlydoanhthu.service.dao.IDonHangService;
 @RestController(value = "donHangAPIOfWeb")
 public class DonHangAPI {
 	@Autowired
-	IDonHangService donHangService;
+	private IDonHangService donHangService;
 
 	@PostMapping("/api/donhang")
 	public DonHangDTO createDonHang(@RequestBody String string) {

@@ -14,7 +14,7 @@ import com.quanlydoanhthu.service.dao.ISanPhamService;
 @RestController(value = "sanPhamAPIOfWeb")
 public class SanPhamAPI {
 	@Autowired
-	ISanPhamService sanPhamService;
+	private ISanPhamService sanPhamService;
 
 	@PostMapping(value = "/api/sanpham", consumes="application/json")
 	public SanPhamDTO createSanPham(@RequestBody String string) {
@@ -31,8 +31,8 @@ public class SanPhamAPI {
 	}
 
 	@DeleteMapping("/api/sanpham")
-	public void deleteSanPham(@RequestBody String id) {
+	public SanPhamDTO deleteSanPham(@RequestBody String id) {
 		Long idLong  = Long.parseLong(id);
-		sanPhamService.delete(idLong);
+		return sanPhamService.delete(idLong);
 	}
 }

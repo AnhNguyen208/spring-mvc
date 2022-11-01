@@ -11,5 +11,5 @@ public interface ISanPhamService {
 	int getTotalItem();
 	SanPhamDTO save(SanPhamDTO sanPhamDTO);
 	SanPhamDTO update(SanPhamDTO sanPhamDTO);
-	void delete(Long idLong);
+	SanPhamDTO delete(Long idLong);
 }

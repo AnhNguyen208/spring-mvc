@@ -20,7 +20,7 @@
 
 <body>
 	<div class="container pt-3">
-		<h4 class="font-weight-bold py-3 mb-4">Cài đặt tài khoản</h4>
+		<h4 class="font-weight-bold py-3 mb-4"></h4>
 		<div class="main-content">
 			<div id="snippetContent">
 				<div class="row gutters">
@@ -37,7 +37,7 @@
 										<h6 class="user-email">${model.emailString}</h6>
 									</div>
 									<div class="about">
-										<h5>Chức vụ</h5>
+										<h5>Position</h5>
 										<p>${model1.tenChucVuString}</p>
 									</div>
 								</div>
@@ -49,11 +49,11 @@
 							<div class="card-body">
 								<div class="row gutters">
 									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-										<h6 class="mb-2 text-primary">Thông tin cá nhân</h6>
+										<h6 class="mb-2 text-primary">Personal information</h6>
 									</div>
 									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<div class="form-group">
-											<label for="fullName">Họ và tên</label> <input type="text"
+											<label for="fullName">Fullname</label> <input type="text"
 												class="form-control" id="fullName"
 												value="${model.hoVaTenString}" placeholder="Enter full name">
 										</div>
@@ -67,14 +67,14 @@
 									</div>
 									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<div class="form-group">
-											<label for="phone">Số điện thoại</label> <input type="text"
+											<label for="phone">Phone number</label> <input type="text"
 												class="form-control" id="phone" value="${model.sdtString}"
 												placeholder="Enter phone number">
 										</div>
 									</div>
 									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<div class="form-group">
-											<label for="">Địa chỉ</label> <input type="text"
+											<label for="">Address</label> <input type="text"
 												class="form-control" id="" value="${model.diaChiString}"
 												placeholder="r">
 										</div>
@@ -83,14 +83,14 @@
 										test="${SecurityUtils.getPrincipal().getPhanQuyenString() == 'USER2'}">
 										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 											<div class="form-group">
-												<label for="">Doanh thu</label> <input type="text"
+												<label for="">Sales</label> <input type="text"
 													class="form-control" id="" value="${model.doanhThuLong}"
 													placeholder="">
 											</div>
 										</div>
 										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 											<div class="form-group">
-												<label for="">Số lượng đơn hàng</label> <input type="text"
+												<label for="">Number of orders</label> <input type="text"
 													class="form-control" id="" value="${model.soLuongDonHang}"
 													placeholder="">
 											</div>

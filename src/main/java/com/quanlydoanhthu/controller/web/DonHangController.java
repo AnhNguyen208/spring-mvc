@@ -24,11 +24,11 @@ import com.quanlydoanhthu.util.SecurityUtils;
 @Controller (value = "donHangControllerOfUser")
 public class DonHangController {
 	@Autowired
-	IDonHangService donHangService;
+	private IDonHangService donHangService;
 	@Autowired
-	ISanPhamService sanPhamService;
+	private ISanPhamService sanPhamService;
 	@Autowired
-	INhanVienService nhanVienService;
+	private INhanVienService nhanVienService;
 	@Autowired
 	private MessageUtil messageUtil;
 	
@@ -85,6 +85,17 @@ public class DonHangController {
 		SanPhamDTO sanPhamDTO = new SanPhamDTO();
 		sanPhamDTO.setListResult(sanPhamService.findAll());
 		mav.addObject("sp", sanPhamDTO);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/trang-chu/don-hang/chinh-sua", method = RequestMethod.GET)
+	public ModelAndView editOrder(@RequestParam("id") Long idLong) {
+		ModelAndView mav = new ModelAndView("web/donhang/editOrder");
+		DonHangDTO donHangDTO = donHangService.findById(idLong);
+		SanPhamDTO sanPhamDTO = new SanPhamDTO();
+		sanPhamDTO.setListResult(sanPhamService.findAll());
+		mav.addObject("donHang", donHangDTO);
+		mav.addObject("sanPham", sanPhamDTO);
 		return mav;
 	}
 	

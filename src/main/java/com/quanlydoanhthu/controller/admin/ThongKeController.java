@@ -19,11 +19,11 @@ import com.quanlydoanhthu.service.dao.ISanPhamService;
 @Controller(value = "thongKeControllerOfAdmin")
 public class ThongKeController {
 	@Autowired
-	INhanVienService nhanVienService;
+	private INhanVienService nhanVienService;
 	@Autowired
-	ISanPhamService sanPhamService;
+	private ISanPhamService sanPhamService;
 	@Autowired
-	IDonHangService donHangService;
+	private IDonHangService donHangService;
 	
 	@RequestMapping(value = "/quan-tri/trang-chu/thong-ke", method = RequestMethod.GET)
 	public ModelAndView thongKePage(@RequestParam(value = "date1", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date date1, 

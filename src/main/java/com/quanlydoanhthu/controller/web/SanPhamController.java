@@ -22,11 +22,11 @@ import com.quanlydoanhthu.util.MessageUtil;
 @Controller (value = "sanPhamControllerOfUser")
 public class SanPhamController {
 	@Autowired
-	ISanPhamService sanPhamService;
+	private ISanPhamService sanPhamService;
 	@Autowired
-	IHangService hangService;
+	private IHangService hangService;
 	@Autowired
-	ILoaiSPService loaiSPService;
+	private ILoaiSPService loaiSPService;
 	@Autowired
 	private MessageUtil messageUtil;
 	

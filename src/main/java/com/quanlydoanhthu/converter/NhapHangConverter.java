@@ -18,11 +18,11 @@ import com.quanlydoanhthu.repository.SanPhamRepository;
 @Component
 public class NhapHangConverter {
 	@Autowired
-	SanPhamConverter sanPhamConverter;
+	private SanPhamConverter sanPhamConverter;
 	@Autowired
-	SanPhamRepository sanPhamRepository;
+	private SanPhamRepository sanPhamRepository;
 	@Autowired
-	NhanVienRepository nhanVienRepository;
+	private NhanVienRepository nhanVienRepository;
 
 	public NhapHangDTO toDTO(NhapHangEntity nhapHangEntity) {
 		NhapHangDTO nhapHangDTO = new NhapHangDTO();

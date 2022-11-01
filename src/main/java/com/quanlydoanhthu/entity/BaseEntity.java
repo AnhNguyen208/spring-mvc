@@ -38,6 +38,9 @@ public abstract class BaseEntity {
 	@LastModifiedBy
 	private String modifiedByString;
 	
+	@Column(name = "TrangThai")
+    private Integer trangThai;
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -77,4 +80,12 @@ public abstract class BaseEntity {
 	public Long getId() {
 		return id;
 	}
+	
+	public Integer getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(Integer trangThai) {
+        this.trangThai = trangThai;
+    }
 }

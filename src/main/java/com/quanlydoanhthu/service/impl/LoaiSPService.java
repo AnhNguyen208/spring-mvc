@@ -15,9 +15,9 @@ import com.quanlydoanhthu.service.dao.ILoaiSPService;
 @Service
 public class LoaiSPService implements ILoaiSPService {
 	@Autowired
-	LoaiSPRepository loaiSPRepository;
+	private LoaiSPRepository loaiSPRepository;
 	@Autowired 
-	LoaiSPConverter loaiSPConverter;
+	private LoaiSPConverter loaiSPConverter;
 
 	@Override
 	public List<LoaiSPDTO> findAll() {

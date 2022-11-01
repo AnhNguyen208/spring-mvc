@@ -9,7 +9,7 @@
             <a href="/quan-tri/trang-chu" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    Trang quản trị
+                    Admin page
                 </small>
             </a>
         </div>
@@ -17,13 +17,13 @@
             <ul class="nav ace-nav">
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        Xin chào, <%=SecurityUtils.getPrincipal().getFullNameString()%>
+                        Wellcome, <%=SecurityUtils.getPrincipal().getFullNameString()%>
                     </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="<c:url value='/thoat'/>">
                 	<i class="ace-icon fa fa-power-off"></i>
-                	Thoát
+                	Logout
                 </a>
               </li>
             </ul>

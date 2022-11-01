@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Danh sách đơn hàng</title>
+<title>Order List</title>
 </head>
 <body>
 	<section class="ftco-section">
@@ -16,7 +16,7 @@
 			<div class="row justify-content-center">
 
 				<div class="col-md-6 text-center mb-4">
-					<h2 class="heading-section">Danh sách đơn hàng</h2>
+					<h2 class="heading-section">Order List</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -26,10 +26,10 @@
 							<thead>
 								<tr>
 									<th>#</th>
-									<th class="center">Thông tin khách hàng</th>
-									<th class="center">Nhân viên bán hàng</th>
-									<th class="center">Ngày tạo đơn hàng</th>
-									<th>&nbsp;</th>
+									<th class="center">Customer information</th>
+									<th class="center">Sales staff</th>
+									<th class="center">Date time</th>
+									<th scope="row" colspan=3>Manipulation</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -39,6 +39,18 @@
 										<td>${item.thongTinKhachHangString}</td>
 										<td>${item.tenNhanVienString}</td>
 										<td>${item.createdDateTimestamp}</td>
+										<td><a
+											class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
+											data-toggle="tooltip"
+											href="/trang-chu/don-hang/chinh-sua?id=${item.id}"><i
+												class="bi bi-pencil-square">Edit</i></a></td>
+										<td><button id="btnDelete" type="button"
+												onclick="warningBeforeDelete(${item.id})"
+												class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+												data-toggle="tooltip" title='Xóa bài viết'>
+												<span> <i class="bi bi-trash">Delete</i>
+												</span>
+											</button></td>
 										<td data-toggle="collapse" data-target="#collapse${item.id}"
 											aria-expanded="false" aria-controls="collapse${item.id}"
 											class=""><i class="fa" aria-hidden="true"></i> <i
@@ -47,15 +59,15 @@
 									<tr>
 										<td colspan="6" id="collapse${item.id}" class="acc collapse"
 											data-parent="#accordion" style="">
-											<h4>Chi tiết đơn hàng</h4>
+											<h4>Order details</h4>
 											<table class="table myaccordion table-hover" id="accordion">
 												<thead>
 													<tr>
 														<th>#</th>
-														<th class="center">Tên sản phẩm</th>
-														<th class="center">Giá tiền</th>
-														<th class="center">Số lượng</th>
-														<th class="center">Tổng</th>
+														<th class="center">Product</th>
+														<th class="center">Unit price</th>
+														<th class="center">Quantity</th>
+														<th class="center">Amount</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -72,12 +84,12 @@
 												<tfoot>
 													<tr>
 														<td colspan=3></td>
-														<td class="table-info">Chiết khấu:</td>
+														<td class="table-info">Discount:</td>
 														<td class="table-info">${item.chietKhauLong}</td>
 													</tr>
 													<tr>
 														<td colspan=3></td>
-														<td class="table-info">Tổng tiền:</td>
+														<td class="table-info">Total amount:</td>
 														<td class="table-info">${item.tongTienDonHang}</td>
 													</tr>
 												</tfoot>
@@ -97,6 +109,39 @@
 			</div>
 		</div>
 	</section>
+	<script>
+		function warningBeforeDelete(id) {
+			swal({
+				title : "Xác nhận xóa",
+				text : "Bạn có chắc chắn muốn xóa hay không",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonClass : "btn-success",
+				cancelButtonClass : "btn-danger",
+				confirmButtonText : "Xác nhận",
+				cancelButtonText : "Hủy bỏ",
+			}).then(
+					function(isConfirm) {
+						if (isConfirm) {
+							deleteSanPham(id);
+						}
+					});
+		}
+		function deleteSanPham(data) {
+			$.ajax({
+					url : '/api/donhang',
+					type : 'DELETE',
+					contentType : 'application/json',
+					data : JSON.stringify(data),
+					success : function(result) {
+						console.log(result);
+					},
+					error : function(error) {
+						console.log(error);
+					}
+					});
+			}
+	</script>
 </body>
 
 </html>

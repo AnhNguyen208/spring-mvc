@@ -25,15 +25,15 @@ public class SanPhamService implements ISanPhamService {
 	private SanPhamConverter sanPhamConverter;
 
 	@Autowired
-	DonHangSanPhamRepository donHangSanPhamRepository;
+	private DonHangSanPhamRepository donHangSanPhamRepository;
 	
 	@Autowired 
-	NhapHangSanPhamRepository nhapHangSanPhamRepository;
+	private NhapHangSanPhamRepository nhapHangSanPhamRepository;
 
 	@Override
 	public List<SanPhamDTO> findAll() {
 		List<SanPhamDTO> sanPhamDTOs = new ArrayList<SanPhamDTO>();
-		List<SanPhamEntity> sanPhamEntities = sanPhamRepository.findAll();
+		List<SanPhamEntity> sanPhamEntities = sanPhamRepository.findAllByTrangThai(1);
 		SanPhamDTO sanPhamDTO = new SanPhamDTO();
 		for (SanPhamEntity sanPhamEntity : sanPhamEntities) {
 			sanPhamDTO = sanPhamConverter.toDTO(sanPhamEntity);
@@ -68,8 +68,10 @@ public class SanPhamService implements ISanPhamService {
 	}
 
 	@Override
-	public void delete(Long idLong) {
-		sanPhamRepository.delete(idLong);
+	public SanPhamDTO delete(Long idLong) {
+	    SanPhamEntity sanPhamEntity = sanPhamRepository.findOne(idLong);
+        sanPhamEntity.setTrangThai(0);
+        return sanPhamConverter.toDTO(sanPhamRepository.save(sanPhamEntity));
 
 	}
 
